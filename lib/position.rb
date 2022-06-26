@@ -20,6 +20,10 @@ class Position
   end
 
   def medium_price
-    @transactions.map { |trans| trans.quantity * trans.price }.reduce(&:+) / quantity
+    (@transactions.map(&:value).reduce(&:+) / quantity).round(2)
+  end
+
+  def value
+    (quantity * medium_price).round(2)
   end
 end

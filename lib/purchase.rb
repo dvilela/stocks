@@ -9,4 +9,8 @@ class Purchase
     @quantity = quantity
     @price = price
   end
+
+  def value
+    (quantity * price).round(2)
+  end
 end

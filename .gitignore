@@ -3,3 +3,6 @@
 
 # debug
 .byebug_history
+
+# tmp
+tmp/

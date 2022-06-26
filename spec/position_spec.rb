@@ -10,6 +10,6 @@ describe Position, type: :model do
     luna4.trade Purchase.new(:luna4, quantity: 1, price: 3.0)
     luna4.trade Purchase.new(:luna3, quantity: 100, price: 1.0)
 
-    expect(luna4).to have_attributes(medium_price: 5.0 / 3, quantity: 3)
+    expect(luna4).to have_attributes(medium_price: (5.0 / 3).round(2), quantity: 3)
   end
 end
