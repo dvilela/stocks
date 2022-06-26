@@ -4,7 +4,7 @@
 class Purchase
   attr_reader :ticker, :quantity, :price
 
-  def initialize(ticker: nil, quantity: nil, price: nil)
+  def initialize(ticker = nil, quantity: nil, price: nil)
     @ticker = ticker
     @quantity = quantity
     @price = price

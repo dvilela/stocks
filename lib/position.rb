@@ -2,11 +2,24 @@
 
 # Represents a current position
 class Position
-  attr_reader :ticker, :quantity, :medium_price
+  attr_reader :ticker
 
-  def initialize(ticker, quantity, medium_price)
+  def initialize(ticker)
     @ticker = ticker
-    @quantity = quantity
-    @medium_price = medium_price
+    @transactions = Array[]
+  end
+
+  def trade(transaction)
+    return unless transaction.ticker == @ticker
+
+    @transactions << transaction
+  end
+
+  def quantity
+    @transactions.map(&:quantity).reduce(:+)
+  end
+
+  def medium_price
+    @transactions.map { |trans| trans.quantity * trans.price }.reduce(&:+) / quantity
   end
 end
